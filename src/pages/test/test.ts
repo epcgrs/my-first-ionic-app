@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
+import { Http } from '@angular/http';
+
 /**
  * Generated class for the TestPage page.
  *
@@ -14,21 +16,23 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
  	templateUrl: 'test.html',
  })
  export class TestPage {
+ 	public beer : any = {};
 
- 	constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+ 	constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,public http: Http) {
+
+
+ 		let url = this.navParams.get('api_url');
+ 		let id_beer = this.navParams.get('beer_id');
+
+ 		this.http.get(url + '/' + id_beer).map(res=>res.json()).subscribe(data=>{
+ 			this.beer = data;
+ 		});
  	}
 
  	ionViewDidLoad() {
  		console.log('ionViewDidLoad TestPage');
  	}
 
- 	showAlert() {
- 		let alert = this.alertCtrl.create({
- 			title: 'Você está logado',
- 			subTitle: 'agora você está logado!',
- 			buttons: ['OK']
- 		});
- 		alert.present();
- 	}
+
 
  }

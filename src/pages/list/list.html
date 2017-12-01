@@ -7,17 +7,14 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+<ion-content padding>
+  <ion-item>
+    <ion-label floating>Nome</ion-label>
+    <ion-input type="text" [(ngModel)]="beer.name"></ion-input>>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Descrição</ion-label>
+    <ion-input type="text" [(ngModel)]="beer.info"></ion-input>>
+  </ion-item>
+  <button ion-button primary (click)="saveBeer(beer)">Cadastrar</button>
 </ion-content>

@@ -18,6 +18,12 @@ public beers: Array<{}>;
   	});
   }
 
+ getBeerInfo(id){
+   // alert(id);
+
+    this.navCtrl.push(TestPage,{'beer_id':id,'api_url':this.url});
+  }
+
   goToTestPage(){
   	this.navCtrl.push(TestPage);
   }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { Http, Headers, RequestOptions } from '@angular/http';
 
 @Component({
   selector: 'page-list',
@@ -8,30 +9,24 @@ import { NavController, NavParams } from 'ionic-angular';
 export class ListPage {
   selectedItem: any;
   icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  private url:string = 'http://192.168.0.21:3000/beers';
+  public beer = {name: "", info: ""};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http, public toastCtrl: ToastController){
 
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
-
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
   }
 
-  itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-    this.navCtrl.push(ListPage, {
-      item: item
+  saveBeer(beer){
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    let options  = new RequestOptions({headers: headers});
+    this.http.post(this.url + "/", beer, options).map(res=>{res.json() }).subscribe(data => {
+      let toast = this.toastCtrl.create({
+        message: 'Cerveja Cadastrada com sucesso',
+        duration: 3000
+      });
+      toast.present();
     });
   }
+
 }

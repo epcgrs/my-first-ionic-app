@@ -7,31 +7,25 @@
 <ion-header>
 
 	<ion-navbar>
-		<ion-title>test</ion-title>
+		<ion-title>Cerveja</ion-title>
 	</ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-	<h1>Test Page</h1>
-	<ion-list>
 
-		<ion-item>
-			<ion-label floating>Username</ion-label>
-			<ion-input type="text"></ion-input>
-		</ion-item>
-
-		<ion-item>
-			<ion-label floating>Password</ion-label>
-			<ion-input type="password"></ion-input>
-		</ion-item>
-
-	</ion-list>
-
-	<div padding>
-		<button ion-button round color="primary" (click)="showAlert()">Login</button>
-	</div>
+	<ion-card>
+		<img src="http://testosterona.me/wp-content/uploads/2016/05/cerveja.jpg"/>
+		<ion-card-content>
+			<ion-card-title>
+				<strong>Marca: </strong>{{beer.name}}
+			</ion-card-title>
+			<p>
+				<strong>Descrição: </strong>{{beer.info}}
+			</p>
+		</ion-card-content>
+	</ion-card>
 
 
 

@@ -9,11 +9,10 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let b of beers">
+    <button ion-item *ngFor="let b of beers" (click)="getBeerInfo(b.id)">
       {{b.name}}
     </button>
   </ion-list>
 
-  <button ion-button primary (click)="goToTestPage()">Ir para Teste Page</button>
     <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>

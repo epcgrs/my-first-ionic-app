@@ -1,6 +1,38 @@
 {
-	"beers" :[
-	{"name": "skol","ambev": "1902312873"},
-	{"name": "schin","ambev": "981274823"}
-	]
+  "beers": [
+    {
+      "id": "1",
+      "name": "skol",
+      "ambev": "1902312873",
+      "info": "milho",
+      "img-url": "http://testosterona.me/wp-content/uploads/2016/05/cerveja.jpg"
+    },
+    {
+      "id": "2",
+      "name": "schin",
+      "ambev": "981274823",
+      "info": "mais milho",
+      "img-url": "http://testosterona.me/wp-content/uploads/2016/05/cerveja.jpg"
+    },
+    {
+      "name": "Heinecken",
+      "info": "menos milho",
+      "id": "Ang6qN8"
+    },
+    {
+      "name": "Sol",
+      "info": "milho x1000",
+      "id": "djyflLz"
+    },
+    {
+      "name": "SkolBeats",
+      "info": "milho playboy ",
+      "id": "~lshLrq"
+    },
+    {
+      "name": "polar",
+      "info": "milho raiz",
+      "id": "KmRLtxz"
+    }
+  ]
 }
